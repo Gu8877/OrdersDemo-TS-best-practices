@@ -1,0 +1,8 @@
+<div class="container-fluid pt-5 text-center ">
+    <h1 class="title">Order List</h1>
+    <div class="columns is-flex is-flex-wrap-wrap">
+        <div *ngFor="let order of orders" id="{{order.id}}" className="column is-6">
+            <app-order [order]="order" onView={onView} onDelete={onDelete}></app-order>
+        </div>
+    </div>
+</div>
