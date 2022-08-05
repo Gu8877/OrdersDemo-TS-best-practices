@@ -1,1 +1,23 @@
-<p>draft-order works!</p>
+<div class="card">
+    <header class="card-header card-bg">
+        <div class="card-header-icon" aria-label="more options">
+            <span class="icon">
+                <i class="fas fa-pen-ruler" aria-hidden="true"></i>
+            </span>
+        </div>
+        <p class="card-header-title">
+            {{order.id}} - {{order.customer.name}}
+        </p>
+    </header>
+    <div class="card-content">
+        <div class="content has-text-left">
+            <em>Total: </em><strong>{{currency.format(order.total)}}</strong>
+            <br />
+            <em>Created At: </em><strong>{{date.format(order.createdAt)}}</strong>
+        </div>
+    </div>
+    <footer class="card-footer card-bg">
+        <button type='button' class="button text card-footer-item mr-1" (click)="onView(order)">Edit</button>
+        <button type='button' class="button text card-footer-item ml-1" (click)="onDelete(order)">Delete</button>
+    </footer>
+</div>

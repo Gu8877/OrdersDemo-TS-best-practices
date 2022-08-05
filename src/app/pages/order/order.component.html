@@ -1,13 +1,13 @@
  <!-- Draft card -->
- <app-draft-order *ngIf="draft"></app-draft-order>
+ <app-draft-order [order]="draftOrder" [onView]="onView" [onDelete]="onDelete" *ngIf="draft"></app-draft-order>
 
  <!-- Progress card -->
- <app-in-progress-order *ngIf="inProgress"></app-in-progress-order>
+ <app-in-progress-order [order]="inProgressOrder" [onView]="onView" *ngIf="inProgress"></app-in-progress-order>
 
 
  <!-- Ship card -->
- <app-ship-order *ngIf="ship"></app-ship-order>
+ <app-ship-order [order]="shipOrder" [onView]="onView" *ngIf="ship"></app-ship-order>
 
 
 <!-- Delivery card -->
-<app-delivery-order *ngIf="delivery"></app-delivery-order>
+<app-delivery-order [order]="deliveryOrder" [onView]="onView" *ngIf="delivery"></app-delivery-order>

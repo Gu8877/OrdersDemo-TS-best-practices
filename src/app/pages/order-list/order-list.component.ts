@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OrderService } from 'src/app/services/order.service';
+import { ModalComponent } from 'src/app/utils/modal/modal.component';
 import { OrderModel } from 'src/app/utils/models';
-import { setErrorMap } from 'zod';
+import * as orderUtils from '../../utils/order'
 
 @Component({
   selector: 'app-order-list',
@@ -13,7 +15,8 @@ export class OrderListComponent implements OnInit {
   orders : OrderModel[] = [];
 
   constructor(
-   private orderService: OrderService
+   private orderService: OrderService,
+   private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +38,33 @@ export class OrderListComponent implements OnInit {
   }
 
   setError(err: Error) {
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.title = 'Error';
+    modalRef.componentInstance.content = `error: ${err}`;
 
   }
+
+  readonly onView = (order: OrderModel): void => {
+    debugger;
+    if (orderUtils.isOrderWithView(order)) {
+      const modalRef = this.modalService.open(ModalComponent);
+      modalRef.componentInstance.title = 'View Order';
+      modalRef.componentInstance.content = `Order with id: ${order.id} in viewing`;
+        return;
+    }
+    if (orderUtils.isOrderWithEdit(order)) {
+      const modalRef = this.modalService.open(ModalComponent);
+      modalRef.componentInstance.title = 'Edit Order';
+      modalRef.componentInstance.content = `Order with id: ${order.id} in editing`;
+    }
+}
+
+  readonly onDelete = (order: OrderModel) => {
+    if (orderUtils.isOrderWithDelete(order)) {
+        const modalRef = this.modalService.open(ModalComponent);
+        modalRef.componentInstance.title = 'Delete Order';
+        modalRef.componentInstance.content = `Order with id: ${order.id} in deleting`;
+    }
+}
 
 }

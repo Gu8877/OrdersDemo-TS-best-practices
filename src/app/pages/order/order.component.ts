@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OrderModel } from 'src/app/utils/models';
+import { DeliveryOrderModel, DraftOrderModel, InProgressOrderModel, OrderModel, ShipOrderModel } from 'src/app/utils/models';
 
 @Component({
   selector: 'app-order',
@@ -8,9 +8,13 @@ import { OrderModel } from 'src/app/utils/models';
 })
 export class OrderComponent implements OnInit {
 
-  @Input() order!: OrderModel;
-  onView! :(order: OrderModel) => void;
-  onDelete! :(order: OrderModel) => void;
+  @Input() order! : OrderModel;
+  draftOrder! : DraftOrderModel;
+  inProgressOrder! : InProgressOrderModel;
+  shipOrder! : ShipOrderModel;
+  deliveryOrder! : DeliveryOrderModel;
+  @Input() onView! : (order: OrderModel) => void;
+  @Input() onDelete! : (order: OrderModel) => void;
   draft : boolean = false;
   inProgress : boolean = false;
   ship : boolean = false;
@@ -25,18 +29,20 @@ export class OrderComponent implements OnInit {
   }
 
   getType() {
+    debugger;
     switch (this.order.type) {
       case 'draft':
-             return this.draft = true;
+            this.draftOrder = this.order;
+            return this.draft = true;
       case 'progress':
-          return this.inProgress = true;
+            this.inProgressOrder = this.order;
+            return this.inProgress = true;
       case 'ship':
+          this.shipOrder = this.order;
           return this.ship = true;
       case 'delivery':
+          this.deliveryOrder = this.order;
           return this.delivery = true;
-      
-      default: 
-      return 'lillo';
   }
   }
 

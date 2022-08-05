@@ -1,5 +1,7 @@
 # OrdersDemo
 
+A repository example about some best practices in Typescript and Frontend data validation using Zod.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
 
 ## Development server

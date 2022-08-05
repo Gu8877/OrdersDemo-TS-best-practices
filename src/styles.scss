@@ -1,14 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
+
 body {
-    background-color: ghostwhite;
+    background-color: #0050a4 !important;
     min-height: 100vh;
   }
   
-  #root {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+#root {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.card-p {
+  padding: 0.75rem;
+}
+
+.card-footer-item:not(:last-child) {
+  border-right: 1px solid #dbdbdb;
+}
+
+.button.is-focused, .button:focus {
+  border-color: #485fc7 !important;
+}
+
+.button.is-hovered, .button:hover {
+  border-color: #485fc7 !important;
+}
+
+.card-header {
+  padding: 0 !important;
+
+  p {
+    margin-bottom: 0;
   }
+}
+
+.modal-body p {
+  margin-bottom: 0;
+}
+
+.card-bg {
+  background-color: transparent !important;
+}
+
+
+@import 'bulma/css/bulma.min.css';

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OrderListComponent } from './pages/order-list/order-list.component';
@@ -10,6 +9,9 @@ import { DeliveryOrderComponent } from './pages/delivery-order/delivery-order.co
 import { ShipOrderComponent } from './pages/ship-order/ship-order.component';
 import { InProgressOrderComponent } from './pages/in-progress-order/in-progress-order.component';
 import { DraftOrderComponent } from './pages/draft-order/draft-order.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalComponent } from './utils/modal/modal.component';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { DraftOrderComponent } from './pages/draft-order/draft-order.component';
     ShipOrderComponent,
     InProgressOrderComponent,
     DraftOrderComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

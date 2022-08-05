@@ -12,6 +12,7 @@ export class OrderService {
   constructor() { }
 
   async getOrders(): Promise<OrderModel[]> {
+    debugger;
     const response = await fetch('../../assets/orders.json');
     const data: unknown = await response.json();
     const orders = responseUtils.parseSafe(data, OrderArraySchema);

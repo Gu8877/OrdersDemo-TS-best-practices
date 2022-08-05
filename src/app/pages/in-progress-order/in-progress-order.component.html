@@ -1,1 +1,22 @@
-<p>in-progress-order works!</p>
+<div class="card">
+    <header class="card-header card-bg">
+        <div class="card-header-icon" aria-label="more options">
+            <span class="icon">
+                <i class="fas fa-dolly" aria-hidden="true"> </i>
+            </span>
+        </div>
+        <p class="card-header-title">
+            {{order.id}} - {{order.customer.name}}
+        </p>
+    </header>
+    <div class="card-content">
+        <div class="content has-text-left">
+            <em>Total: </em><strong>{{currency.format(order.total)}}</strong>
+            <br />
+            <em>Order Date: </em><strong>{{date.format(order.date)}}</strong>
+        </div>
+    </div>
+    <footer class="card-footer card-bg">
+        <button type='button' class="button is-text card-footer-item" (click)="onView(order)">View</button>
+    </footer>
+</div>
