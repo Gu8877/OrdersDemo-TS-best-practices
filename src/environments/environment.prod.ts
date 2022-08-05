@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  BASE_URL: 'api-url'
+  baseUrl: 'OrdersDemo-TS-best-practices'
 };
