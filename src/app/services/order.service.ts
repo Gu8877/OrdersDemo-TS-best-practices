@@ -13,15 +13,13 @@ export class OrderService {
 
   async getOrders(): Promise<OrderModel[]> {
     debugger;
-    const response = await fetch('../../assets/orders.json');
+    const response = await fetch(`${environment.baseUrl}../../assets/orders.json`);
     const data: unknown = await response.json();
     const orders = responseUtils.parseSafe(data, OrderArraySchema);
     if (orders.type === 'error') {
       throw orders.error;
     }
     return orders.value;
-    // responseUtils.validate(data, OrderArraySchema);
-    // return responseUtils.parse(data, OrderArraySchema);
   }
   
 }
